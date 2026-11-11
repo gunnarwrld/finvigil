@@ -1,0 +1,34 @@
+[
+  {
+    "chunk_id": "EU-AMLR-2024-1624-ART-19",
+    "regulation": "EU_AMLR_2024_1624",
+    "celex_or_source_ref": "CELEX:32024R1624 (Regulation (EU) 2024/1624, Art. 19 & Directive (EU) 2015/849 Art. 11)",
+    "section_title": "Regulation (EU) 2024/1624 Art. 19 — Occasional Transactions & Linked/Structured Operations (EUR 10,000 Threshold)",
+    "keywords": "structuring smurfing threshold 10000 EUR linked transactions split transfers",
+    "content": "Pursuant to Regulation (EU) 2024/1624 Article 19(1)-(2) and Directive (EU) 2015/849 (AMLD4/5) Article 11(b), obliged entities shall apply customer due diligence measures when carrying out occasional transactions amounting to at least EUR 10,000, whether that transaction is carried out in a single operation or in several linked operations which appear to be artificially split ('structuring'). Linked operations aggregating above EUR 10,000 within a short time window followed by rapid onward transfer require enhanced scrutiny under Article 34."
+  },
+  {
+    "chunk_id": "EU-PSD2-2015-2366-ART-68",
+    "regulation": "EU_PSD2_2015_2366",
+    "celex_or_source_ref": "CELEX:32015L2366 (Directive (EU) 2015/2366, Art. 68(2) & Art. 72)",
+    "section_title": "Directive (EU) 2015/2366 (PSD2) Art. 68(2) — Blocking of Payment Instruments on Suspected Fraud or Unauthorised Use",
+    "keywords": "freeze block payment instrument unauthorized fraudulent transaction account takeover drain",
+    "content": "Under Directive (EU) 2015/2366 (PSD2) Article 68(2), if agreed in the framework contract, the payment service provider reserves the right to block the payment instrument for objectively justified reasons relating to the security of the payment instrument, the suspicion of unauthorised or fraudulent use of the payment instrument. Under Article 68(3), the payment service provider shall inform the payer of the blocking of the payment instrument and the reasons for it, where possible before the payment instrument is blocked and at the latest immediately thereafter, unless giving such information would compromise objectively justified security reasons."
+  },
+  {
+    "chunk_id": "FATF-REC-20-STR-LAYERING",
+    "regulation": "FATF_RECOMMENDATION_20",
+    "celex_or_source_ref": "FATF (2012-2023), International Standards on Combating Money Laundering, Recommendation 20 & Interpretive Note",
+    "section_title": "FATF Recommendation 20 — Reporting of Suspicious Transactions & Rapid Pass-Through Layering",
+    "keywords": "layering cash_out offshore cross-border balance drain velocity spike pass-through mule",
+    "content": "FATF Recommendation 20 requires that if a financial institution suspects or has reasonable grounds to suspect that funds are the proceeds of a criminal activity, or are related to terrorist financing, it should be required, by law, to report promptly its suspicions to the Financial Intelligence Unit (FIU). Rapid pass-through accounts where inbound credits from multiple third parties are immediately depleted via outbound wire or cash-out with minimal balance retention represent high-priority layering indicators regardless of customer-supplied payment narratives."
+  },
+  {
+    "chunk_id": "EU-AI-ACT-2024-1689-ART-14",
+    "regulation": "EU_AI_ACT_2024_1689",
+    "celex_or_source_ref": "CELEX:32024R1689 (Regulation (EU) 2024/1689, Art. 14 — Human Oversight)",
+    "section_title": "Regulation (EU) 2024/1689 (EU AI Act) Art. 14 — Human Oversight & Automation Bias Prevention",
+    "keywords": "freeze_account human approval oversight threshold idempotency false positive payroll",
+    "content": "Under Regulation (EU) 2024/1689 Article 14(4), human oversight measures shall enable the individuals to whom human oversight is assigned to correctly interpret the high-risk AI system's output, remain aware of automation bias, and decide not to use the output or otherwise disregard, override or reverse the output. Account restrictions (FREEZE_ACCOUNT) require authenticated compliance officer review bound to the specific case evidence hash, while routine corporate payroll or verified supplier settlements with low risk scores should be dismissed (DISMISS_ALERT)."
+  }
+]

@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Unit test / coverage reports
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local databases & ML artifacts
+*.db
+*.sqlite
+*.sqlite3
+.finvigil_checkpoints.json
+evals/latest_results.json
+mlruns/
+mlartifacts/
+data/raw/
+*.csv
+*.parquet
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
