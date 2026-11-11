@@ -1,0 +1,79 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: finvigil-postgres
+    environment:
+      POSTGRES_USER: finvigil_admin
+      POSTGRES_PASSWORD: finvigil_password
+      POSTGRES_DB: finvigil
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U finvigil_admin -d finvigil"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: finvigil-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: finvigil-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.14.1
+    container_name: finvigil-mlflow
+    ports:
+      - "5000:5000"
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri sqlite:///mlflow.db
+      --default-artifact-root /mlruns
+    volumes:
+      - mlflow_data:/mlruns
+
+  finvigil-api:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    container_name: finvigil-api
+    environment:
+      FINVIGIL_ENVIRONMENT: production
+      FINVIGIL_ENABLE_FREEZE_ACTIONS: "false"
+      FINVIGIL_DATABASE_URL: postgresql+psycopg://finvigil_admin:finvigil_password@postgres:5432/finvigil
+      FINVIGIL_READONLY_DATABASE_URL: postgresql+psycopg://finvigil_readonly:finvigil_ro_secret@postgres:5432/finvigil
+      FINVIGIL_REDIS_URL: redis://redis:6379/0
+      FINVIGIL_LLM_PROVIDER: ollama
+      FINVIGIL_LLM_BASE_URL: http://ollama:11434/v1
+      FINVIGIL_LLM_MODEL: deepseek-r1:8b
+      FINVIGIL_MLFLOW_TRACKING_URI: http://mlflow:5000
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  mlflow_data:
+  ollama_models:
