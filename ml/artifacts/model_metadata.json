@@ -1,0 +1,98 @@
+{
+  "model_version": "xgb-paysim-v2.0.0",
+  "feature_names": [
+    "kyc_tier",
+    "account_age_days",
+    "tx_count",
+    "structuring_tx_count",
+    "cash_out_or_transfer_ratio",
+    "max_single_drain_ratio",
+    "high_risk_corridor_ratio",
+    "outbound_to_inbound_ratio",
+    "remaining_balance_ratio"
+  ],
+  "freeze_threshold": 0.65,
+  "split_strategy": "chronological_step_hour_and_typology_holdout",
+  "train_samples": 417,
+  "val_samples": 90,
+  "test_samples": 83,
+  "baseline_logistic_regression": {
+    "val": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": 0.0,
+      "brier_calibration_loss": 0.0041,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "tn": 70,
+        "fp": 0,
+        "fn": 0,
+        "tp": 20
+      }
+    },
+    "test": {
+      "precision": 0.8571,
+      "recall": 1.0,
+      "f1": 0.9231,
+      "false_positive_rate": 0.0462,
+      "brier_calibration_loss": 0.0275,
+      "pr_auc": 0.98,
+      "roc_auc": 0.994,
+      "confusion_matrix": {
+        "tn": 62,
+        "fp": 3,
+        "fn": 0,
+        "tp": 18
+      }
+    }
+  },
+  "xgboost_chronological_metrics": {
+    "val": {
+      "precision": 1.0,
+      "recall": 0.95,
+      "f1": 0.9744,
+      "false_positive_rate": 0.0,
+      "brier_calibration_loss": 0.0047,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "tn": 70,
+        "fp": 0,
+        "fn": 1,
+        "tp": 19
+      }
+    },
+    "test": {
+      "precision": 1.0,
+      "recall": 0.9444,
+      "f1": 0.9714,
+      "false_positive_rate": 0.0,
+      "brier_calibration_loss": 0.006,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "confusion_matrix": {
+        "tn": 65,
+        "fp": 0,
+        "fn": 1,
+        "tp": 17
+      }
+    }
+  },
+  "xgboost_typology_holdout_metrics": {
+    "precision": 1.0,
+    "recall": 0.9455,
+    "f1": 0.972,
+    "false_positive_rate": 0.0,
+    "brier_calibration_loss": 0.018,
+    "pr_auc": 0.9865,
+    "roc_auc": 0.9901,
+    "confusion_matrix": {
+      "tn": 97,
+      "fp": 0,
+      "fn": 3,
+      "tp": 52
+    }
+  }
+}
